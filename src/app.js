@@ -8,15 +8,7 @@ const trains = [
         speed: 75,
         acceleration: 0.4,
         braking: 0.3,
-        image: "train142.png",
-        category: "regional",
-      },
-      "Pacer Refurbished": {
-        cars: 2,
-        speed: 78,
-        acceleration: 0.45,
-        braking: 0.32,
-        image: "train142_refurbished.png",
+        image: "img/TRAIN-142.webp",
         category: "regional",
       },
     },
@@ -126,42 +118,48 @@ function showTrain(train, variantName) {
   const contentTransitionDuration = 500; // ms
 
   // Function to create and add the new content
-  const addNewContent = () => {
-    // Clear any lingering default text if it was hidden
-    if (defaultText) {
-      defaultText.style.display = "none";
-    }
+const addNewContent = () => {
+  // Remove old image if it exists
+  const oldImage = mainView.querySelector(".train-image");
+  if (oldImage) oldImage.remove(); 
+  if (defaultText) {
+    defaultText.style.display = "none";
+  }
+  
 
-    // Create a container for the new train info to animate it
-    const trainInfoContainer = document.createElement("div");
-    trainInfoContainer.className = "train-info-container";
-    trainInfoContainer.style.position = "relative"; // Ensure inner absolute positioning works
-    trainInfoContainer.style.opacity = 0; // Start invisible for fadeIn
-    trainInfoContainer.style.transform = "translateY(20px)"; // Start slightly below for slideUp
+  // Create and insert the train image separately
+  const trainImage = document.createElement("img");
+  trainImage.src = variant.image;
+  trainImage.alt = `${train.name} - ${variantName}`;
+  trainImage.className = "train-image";
+  mainView.appendChild(trainImage);
 
-    // Use string template literals for cleaner HTML generation
-    trainInfoContainer.innerHTML = `
-      <img src="${variant.image}" alt="${train.name}" class="train-image">
-      <h2>${train.name} - ${variantName}</h2>
-      <div class="stats-card">
-        <p><strong>Typ:</strong> ${train.type}</p>
-        <p><strong>Variante:</strong> ${variantName}</p>
-        <p><strong>Wagen:</strong> ${variant.cars}</p>
-        <p><strong>Höchstgeschwindigkeit:</strong> ${variant.speed} mph</p>
-        <p><strong>Beschleunigung:</strong> ${variant.acceleration} m/s²</p>
-        <p><strong>Bremskraft:</strong> ${variant.braking} m/s²</p>
-      </div>
-    `;
-    mainView.appendChild(trainInfoContainer);
+  // Create the container for train info
+  const trainInfoContainer = document.createElement("div");
+  trainInfoContainer.className = "train-info-container";
+  trainInfoContainer.style.position = "relative";
+  trainInfoContainer.style.opacity = 0;
+  trainInfoContainer.style.transform = "translateY(20px)";
 
-    // Trigger fade-in/slide-up animation for the new content
-    // Use a small timeout to ensure the browser has rendered the element
-    // before applying the 'final' styles to trigger transition.
-    setTimeout(() => {
-      trainInfoContainer.style.opacity = 1;
-      trainInfoContainer.style.transform = "translateY(0)";
-    }, 50); // Small delay
-  };
+  trainInfoContainer.innerHTML = `
+    <h2 style="margin-top: -24vw;">${train.name} - ${variantName}</h2>
+    <div class="stats-card">
+      <p><strong>Typ:</strong> ${train.type}</p>
+      <p><strong>Variante:</strong> ${variantName}</p>
+      <p><strong>Wagen:</strong> ${variant.cars}</p>
+      <p><strong>Höchstgeschwindigkeit:</strong> ${variant.speed} mph</p>
+      <p><strong>Beschleunigung:</strong> ${variant.acceleration} m/s²</p>
+      <p><strong>Bremskraft:</strong> ${variant.braking} m/s²</p>
+    </div>
+  `;
+  mainView.appendChild(trainInfoContainer);
+
+  // Animate the train info fade-in/slide-up
+  setTimeout(() => {
+    trainInfoContainer.style.opacity = 1;
+    trainInfoContainer.style.transform = "translateY(0)";
+  }, 50);
+};
 
   if (oldContent) {
     oldContent.classList.add("fade-out-content"); // Add class to trigger fade-out animation
