@@ -10,6 +10,61 @@ const trains = [
         braking: 0.3,
         image: "img/TRAIN-142.webp",
         category: "regional",
+        length: 31,
+      },
+    },
+  },
+  {
+    name: "Class 156",
+    type: "DMU",
+    variants: {
+      "Super Sprinter": {
+        cars: 2,
+        speed: 75,
+        acceleration: 0.7,
+        braking: 1,
+        image: "img/TRAIN-156.webp",
+        category: "regional",
+        length: 46,
+      },
+    },
+  },
+  {
+    name: "Class 231",
+    type: "DMU",
+    variants: {
+      "231": {
+        cars: 4,
+        speed: 90,
+        acceleration: 1.1,
+        braking: 1.2,
+        image: "img/TRAIN-231.webp",
+        category: "regional",
+        length: 81,
+      },
+    },
+  },
+  {
+    name: "Class 745",
+    type: "EMU",
+    variants: {
+      "745/0 (Intercity Set)": {
+        cars: 12,
+        speed: 100,
+        acceleration: 0.9,
+        braking: 1.2,
+        image: "img/TRAIN-745.webp",
+        category: "intercity",
+        length: 235,
+      },
+      "745/1 (Airport Set)": {
+        cars: 12,
+        speed: 100,
+        acceleration: 0.9,
+        braking: 1.2,
+        image: "img/TRAIN-745.webp",
+        category: "intercity",
+        length: 235,
       },
     },
   },
@@ -17,21 +72,239 @@ const trains = [
     name: "Class 755",
     type: "BMU",
     variants: {
-      Regional: {
+      "755/3": {
         cars: 3,
         speed: 100,
-        acceleration: 0.5,
-        braking: 0.35,
-        image: "train755.png",
-        category: "intercity",
+        acceleration: 1.3,
+        braking: 1.2,
+        image: "img/TRAIN-755.webp",
+        category: "regional",
+        length: 65,
       },
-      Express: {
+      "755/4": {
         cars: 4,
-        speed: 110,
-        acceleration: 0.55,
-        braking: 0.4,
-        image: "train755_express.png",
+        speed: 100,
+        acceleration: 1.3,
+        braking: 1.2,
+        image: "img/TRAIN-755.webp",
+        category: "regional",
+        length: 81,
+      },
+    },
+  },
+  {
+    name: "Class 756",
+    type: "BMU",
+    variants: {
+      "756/0": {
+        cars: 3,
+        speed: 75,
+        acceleration: 1.1,
+        braking: 1.2,
+        image: "img/TRAIN-756.webp",
+        category: "regional",
+        length: 65,
+      },
+      "756/1": {
+        cars: 4,
+        speed: 75,
+        acceleration: 1.1,
+        braking: 1.2,
+        image: "img/TRAIN-756.webp",
+        category: "regional",
+        length: 81,
+      },
+    },
+  },
+  {
+    name: "Class 800",
+    type: "BMU",
+    variants: {
+      "800/0": {
+        cars: 5,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-800_03.webp",
+        category: "regional",
+        length: 132,
+      },
+      "800/1": {
+        cars: 9,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-800.webp",
+        category: "intercity",
+        length: 238,
+      },
+      "800/2": {
+        cars: 5,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-800.webp",
+        category: "regional",
+        length: 132,
+      },
+      "800/3": {
+        cars: 9,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-800_03.webp",
+        category: "intercity",
+        length: 238,
+      },
+    },
+  },
+  {
+    name: "Class 801",
+    type: "EMU",
+    variants: {
+      "801/1": {
+        cars: 5,
+        speed: 125,
+        acceleration: 0.8,
+        braking: 1.2,
+        image: "img/TRAIN-800.webp",
+        category: "intercity",
+        length: 132,
+      },
+      "801/2": {
+        cars: 9,
+        speed: 125,
+        acceleration: 0.8,
+        braking: 1.2,
+        image: "img/TRAIN-800.webp",
+        category: "intercity",
+        length: 238,
+      },
+    },
+  },
+   {
+    name: "Class 802",
+    type: "BMU",
+    variants: {
+      "802/0": {
+        cars: 5,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-800_03.webp",
+        category: "regional",
+        length: 132,
+      },
+      "802/1": {
+        cars: 9,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-800_03.webp",
+        category: "intercity",
+        length: 238,
+      },
+      "802/2": {
+        cars: 5,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-802.webp",
+        category: "regional",
+        length: 132,
+      },
+      "802/3": {
+        cars: 5,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-800_3.webp",
+        category: "regional",
+        length: 132,
+      },
+    },
+  },
+   {
+    name: "Class 803",
+    type: "EMU",
+    variants: {
+      "803/0": {
+        cars: 5,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-803.webp",
+        category: "intercity",
+        length: 132,
+      },
+    },
+  },
+   {
+    name: "Class 805",
+    type: "BMU",
+    variants: {
+      "805/0": {
+        cars: 5,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-805.webp",
+        category: "intercity",
+        length: 132,
+      },
+    },
+  },
+  {
+    name: "Class 807",
+    type: "EMU",
+    variants: {
+      "807/0": {
+        cars: 7,
+        speed: 125,
+        acceleration: 0.7,
+        braking: 1.2,
+        image: "img/TRAIN-807.webp",
+        category: "intercity",
+        length: 185,
+      },
+    },
+  },
+  {
+    name: "Class 153",
+    type: "DMU",
+    variants: {
+      "Super Sprinter": {
+        cars: 7,
+        speed: 75,
+        acceleration: 0.7,
+        braking: 1,
+        image: "img/TRAIN-153.webp",
         category: "shuttle",
+        length: 32,
+      },
+    },
+  },
+  {
+    name: "Class 158",
+    type: "DMU",
+    variants: {
+      "2 Car": {
+        cars: 2,
+        speed: 90,
+        acceleration: 0.7,
+        braking: 1,
+        image: "img/TRAIN-158.webp",
+        category: "regional",
+        length: 48,
+      },
+      "3 Car": {
+        cars: 3,
+        speed: 90,
+        acceleration: 0.7,
+        braking: 1,
+        image: "img/TRAIN-158.webp",
+        category: "regional",
+        length: 72,
       },
     },
   },
@@ -145,12 +418,13 @@ const addNewContent = () => {
     <h1 class="sideway-num">${train.name.match(/\d+/)?.[0] ?? ""}</h1>
     <h2 style="margin-top: -24vw;">${train.name} - ${variantName}</h2>
     <div class="stats-card">
-      <p><strong>Typ:</strong> ${train.type}</p>
-      <p><strong>Variante:</strong> ${variantName}</p>
-      <p><strong>Wagen:</strong> ${variant.cars}</p>
-      <p><strong>Höchstgeschwindigkeit:</strong> ${variant.speed} mph</p>
-      <p><strong>Beschleunigung:</strong> ${variant.acceleration} m/s²</p>
-      <p><strong>Bremskraft:</strong> ${variant.braking} m/s²</p>
+      <p><strong>Type:</strong> ${train.type}</p>
+      <p><strong>Variant:</strong> ${variantName}</p>
+      <p><strong>Coaches:</strong> ${variant.cars}</p>
+      <p><strong>Top Speed:</strong> ${variant.speed} mph</p>
+      <p><strong>Acceleration:</strong> ${variant.acceleration} m/s²</p>
+      <p><strong>Braking:</strong> ${variant.braking} m/s²</p>
+      <p><strong>Length:</strong> ${variant.length} m</p>
     </div>
   `;
   mainView.appendChild(trainInfoContainer);
