@@ -142,6 +142,7 @@ const addNewContent = () => {
   trainInfoContainer.style.transform = "translateY(20px)";
 
   trainInfoContainer.innerHTML = `
+    <h1 class="sideway-num">${train.name.match(/\d+/)?.[0] ?? ""}</h1>
     <h2 style="margin-top: -24vw;">${train.name} - ${variantName}</h2>
     <div class="stats-card">
       <p><strong>Typ:</strong> ${train.type}</p>

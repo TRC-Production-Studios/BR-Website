@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
@@ -11,7 +12,6 @@ body {
   height: 100vh;
   overflow: hidden;
   opacity: 0;
-  /* Explicitly define the background transition first */
   transition: background 1.5s ease, opacity 1s ease;
   animation: bodyFadeIn 1s ease forwards;
 }
@@ -51,7 +51,7 @@ body.theme-shuttle {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* This centers the default text if present */
+  justify-content: center;
   align-items: flex-start;
   background-color: transparent;
   position: relative;
@@ -59,32 +59,25 @@ body.theme-shuttle {
   overflow: hidden;
 }
 
-/* NEW: Container for train image, title, and stats */
 .train-info-container {
-  /* Position the entire container relative to main, allows inner flexbox/flow */
-  position: absolute;
+  position: relative;
   top: 20px;
   left: 20px;
-  right: 20px; /* Take up more width in main area */
-  bottom: 20px; /* Allow content to use available space */
-
-  /* Initial state for new content animation (fade in and slide up) */
+  right: 20px;
+  bottom: 20px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
-
-  /* Arrange inner elements */
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align contents to the start */
+  align-items: flex-start;
   justify-content: flex-start;
-  gap: 15px; /* Space between elements */
+  gap: 15px;
 }
 
-/* NEW: Animation for existing content when new one is selected (fade out and slide up) */
 .train-info-container.fade-out-content {
   animation: fadeOutContent 0.5s ease forwards;
-  pointer-events: none; /* Prevent interaction during fade-out */
+  pointer-events: none;
 }
 
 @keyframes fadeOutContent {
@@ -94,7 +87,7 @@ body.theme-shuttle {
   }
   to {
     opacity: 0;
-    transform: translateY(-20px); /* Slide up while fading out */
+    transform: translateY(-20px);
   }
 }
 
@@ -164,10 +157,12 @@ body.theme-shuttle {
 .variant-list button.regional {
   background-color: #33aef5;
 }
+
 .variant-list button.intercity {
   background-color: #ffdc41;
   color: black;
 }
+
 .variant-list button.shuttle {
   background-color: #bb8eff;
 }
@@ -180,29 +175,22 @@ body.theme-shuttle {
   margin-left: 10px;
 }
 
-/* Adjusted for new .train-info-container parent */
 .stats-card {
   background: #2a2a31;
   border-radius: 20px;
   padding: 20px;
-  /* Removed margin-top as gap on parent .train-info-container handles spacing */
   box-shadow: 0 0 25px rgba(0, 123, 255, 0.2);
-  /* Removed these as the parent container handles its overall animation */
   animation: none;
-  opacity: 1; /* Ensure it starts visible if its parent is visible */
+  opacity: 1;
   margin-top: -0.7vw;
 }
 
 .stats-card.hide {
-  /* This class is no longer primarily used for the card itself,
-     as fade-out-content on the parent handles it.
-     Can be removed or re-purposed if needed for other specific hiding. */
   animation: fadeOut 0.5s ease forwards;
 }
 
 .stats-card p {
   margin: 10px 0;
-  /* These individual paragraph animations are fine to keep for staggered appearance *within* the card */
   animation: slideUp 0.4s ease forwards;
   opacity: 0;
 }
@@ -210,18 +198,23 @@ body.theme-shuttle {
 .stats-card p:nth-child(1) {
   animation-delay: 0.1s;
 }
+
 .stats-card p:nth-child(2) {
   animation-delay: 0.2s;
 }
+
 .stats-card p:nth-child(3) {
   animation-delay: 0.3s;
 }
+
 .stats-card p:nth-child(4) {
   animation-delay: 0.4s;
 }
+
 .stats-card p:nth-child(5) {
   animation-delay: 0.5s;
 }
+
 .stats-card p:nth-child(6) {
   animation-delay: 0.6s;
 }
@@ -232,12 +225,14 @@ body.theme-shuttle {
     transform: translateY(0);
   }
 }
+
 @keyframes slideUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -248,13 +243,11 @@ body.theme-shuttle {
   }
 }
 
-/* Adjusted for new .train-info-container parent */
 .train-image {
   max-width: 100%;
   max-height: 100%;
-  /* Removed margin-bottom as gap on parent .train-info-container handles spacing */
   transition: transform 0.3s ease;
-  object-fit: contain; /* Ensures image fits within its bounds without distortion */
+  object-fit: contain;
   right: 0;
   position: fixed;
 }
@@ -263,19 +256,32 @@ body.theme-shuttle {
   transform: scale(1.02);
 }
 
-/* Styles for default text - ensuring it's centered when no content */
 #default-text {
-    /* Center it within the main container */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 1.2em;
-    color: rgba(255, 255, 255, 0.6);
-    transition: opacity 0.3s ease; /* For fading default text */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.2em;
+  color: rgba(255, 255, 255, 0.6);
+  transition: opacity 0.3s ease;
 }
 
 #default-text.hide {
-    opacity: 0;
+  opacity: 0;
+}
+
+.sideway-num {
+  position: absolute;
+  top: 70%;
+  left: 48px;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+  color: gray;
+  font-weight: 900;
+  font-size: 10vw;
+  z-index: -1;
+  white-space: nowrap;
+  margin-top: 7vw;
+  pointer-events: none;
 }
